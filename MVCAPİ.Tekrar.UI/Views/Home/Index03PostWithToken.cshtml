@@ -1,0 +1,22 @@
+﻿@model MVCAPİ.Tekrar.UI.Models.ShipperDTO
+
+@if (TempData["servermesaj"] != null)
+{
+    @if (TempData["servermesaj"].ToString() != "")
+    {
+        <p class="text-danger">
+            Verilen bİLGİLER dATABASE KAYIT EDİLEMEDi
+        </p>
+        <p class="text-success">
+            @TempData["servermesaj"]
+        </p>
+    }
+
+}
+<form asp-action="Index03PostWithToken" method="post">
+    Kargo Adı : <input type="text" name="name" asp-for="CompanyName" value="Kargo Ekle" />
+    Telefon : <input type="text" name="name" asp-for="Phone" value="TelefonEkle" />
+    <br />
+    <input type="submit" name="name" value="Kargo Ekle" class="btn btn-outline-success" col-md-6 />
+</form>
+

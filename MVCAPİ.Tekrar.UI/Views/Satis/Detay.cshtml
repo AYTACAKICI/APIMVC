@@ -1,0 +1,31 @@
+﻿@model SepetDTO
+<div class="container border-dark">
+    <div class="col-md-4">
+        <span> Urun Adı : </span> @Model.UrunDetay.ProductName
+    </div>
+    <div  class="col-md-4">
+        <span>Stok Miktarı : </span> @Model.UrunDetay.UnitsInStock
+    </div>
+    <div  class="col-md-4">
+        <span>Kategorisi : </span> @Model.UrunDetay.CategoryName
+        
+    </div>
+
+</div>  
+
+<!--<form asp-action="SepeteAt" asp-controller="Satis">
+    @Html.HiddenFor(a=>a.UrunDetay.ProductID)-->
+    @*<input type="hidden" name="name" value="@Model.UrunDetay.ProductID" />*@
+    <!--<div>
+        <span>  Adet </span>  <input type="text"  asp-for="Adet" placeholder="Adet Giriniz" />
+        <input type="submit" name="name" value="Sepete Ekle" class="btn col-md-6 btn-success" />
+    </div>
+ 
+</form>-->
+<form asp-action="SepeteAt" asp-controller="Satis">
+    @Html.HiddenFor(a => a.UrunDetay.ProductID)
+    @Html.HiddenFor(a=> a.UrunDetay.ProductName)
+    @*<input type="hidden" name="name" value="@Model.UrunDetay.ProductID" />*@
+    <span>  Adet: </span> <input type="text" value="" asp-for="Adet" />
+    <input type="submit" name="name" value="sepete ekle" class="btn btn-secondary btn col-md-6" />
+</form>

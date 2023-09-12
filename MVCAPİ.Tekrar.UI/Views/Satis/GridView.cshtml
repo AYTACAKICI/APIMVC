@@ -1,0 +1,37 @@
+﻿@using NonFactors.Mvc.Grid
+@model List<ProductDTO>
+<html>
+<head>
+    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet">
+</head>
+<body>
+    <form asp-action="SepeteAt" asp-controller="Satis" >
+
+
+        @(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => Html.CheckBox("Check_" + model.ProductID)).Titled(Html.CheckBox("CheckAll"));
+        columns.Add(model => model.ProductName).Titled("Ürün Adı");
+        columns.Add(model => model.CategoryName).Titled("Kategori");
+        columns.Add(model => model.CompanyName).Titled("Üretici");
+        columns.Add(model => model.UnitPrice).Titled("Birim Fiyatı");
+        columns.Add(model => model.UnitsInStock).Titled("Stok Miktarı");
+
+    })
+      .Using(GridFilterMode.Header)
+      .Empty("no data found")
+      .Filterable()
+      .Sortable()
+      .Pageable()
+
+       )
+        <input type="submit" name="name" value="Sepete Ekle" class="btn btn-primary" />
+    </form>
+    <script src="~/js/mvc-grid/mvc-grid.js"></script>
+    <script>
+        document.querySelectorAll(".mvc-grid").forEach(element => new MvcGrid(element));
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@using NonFactors.Mvc.Grid
+@model List<ProductDTO>
+
+<table class="table-bordered table-active">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ProductDTO item in (List<ProductDTO>)TempData["degerler123"])
+        {
+        <tr>
+            <td>
+                @item.ProductID
+            </td>
+
+            <td>
+                @item.ProductName
+            </td>
+            <td>
+                <a href="/Satis/Detay/@item.ProductID" class="btn btn-info ">Detay</a>
+            </td>          
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@*@(Html
+        .Grid(Model)
+        .Build(columns =>
+        {
+            columns.Add(model => model.ProductName).Titled("Ürün Adı");
+            columns.Add(model => model.CategoryName).Titled("Kategori");
+            columns.Add(model => model.CompanyName).Titled("Üretici");
+            columns.Add(model => model.UnitPrice).Titled("Birim Fiyatı");
+            columns.Add(model => model.UnitsInStock).Titled("Stok Miktarı");
+        })
+        .Using(GridFilterMode.Header)
+        .Empty("Veri Bulunamadı !")
+        .Filterable()
+        .Sortable()
+        .Pageable()
+    )*@

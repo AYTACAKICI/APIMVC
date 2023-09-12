@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Sepetim";
+}
+@model List<SepetDTO>
+<h1>Sepetim</h1>
+
+<form class="form-check" asp-controller="Satis" asp-action="Sepetim">
+
+
+    <table class="table-bordered table-active">
+        <thead>
+            <tr>
+                <th>Adet</th>
+                <th>Ürün</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in (List<SepetDTO>)TempData["degerler12"])
+            {
+                <tr>
+                    <td>
+                        @item.Adet
+                    </td>
+                    <td>
+                        @item.UrunDetay.ProductName
+                     
+                    </td>
+                    <td>
+                        @item.UrunDetay.ProductID
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" class="btn btn-outline-success" name="name" value="Sepeti Kaydet" />
+</form>

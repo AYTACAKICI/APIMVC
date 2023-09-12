@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model LoginDTO
+    <div>
+        <p class="center">Kullanıcı Login Ekranı </p>
+       
+    </div>
+
+
+<form asp-controller="Home" asp-action="IndexLogin" method="post">
+    <div class="container">
+        <div class="col col-md-6 center">
+            <label class="h6">Kullanıcı Adı</label>
+            <br />
+            <input type="text" value="" asp-for="@Model.UserName" class="form-control" placeholder="Kullanıcı Adını.." />
+            <br />
+        </div>
+        <div class="col col-md-6 center">
+            <label class="h6">Şifre</label>
+            <br />
+            <input type="text" value="" asp-for="@Model.Password" class="form-control" placeholder="Şifre giriniz.." />
+            <br />
+        </div>
+        <input type="submit" name="name" value="Giriş Yap" class="btn-danger form-control" />
+    </div>
+</form>>
+<div>
+    <a class="btn btn-success" href="/Home/Index03KullaniciKayit">Kullanıcı Kayıt Ekranı</a>
+</div>
